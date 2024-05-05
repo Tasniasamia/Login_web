@@ -1,8 +1,7 @@
 import "./App.css";
-import { Button, Form, Input } from "antd";
+import { Form, Input } from "antd";
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoFacebook } from "react-icons/io5";
-import { Value } from "sass";
 
 function App() {
   return (
