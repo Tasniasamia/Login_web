@@ -1,0 +1,28 @@
+// Define a default value for $theme-colors-rgb
+$theme-colors-rgb: (
+  // Define your theme colors here if needed
+);
+
+// Now import Bootstrap SCSS files
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/utilities";
+
+// Your custom variables and utilities go here
+$red: red;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": (
+      property: color,
+      class: text,
+      values: (
+        "red": $red
+      )
+    )
+  )
+);
