@@ -1,12 +1,9 @@
-import { Form, Input } from "antd";
+import { Form, Input, Select } from "antd";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoFacebook } from "react-icons/io5";
-// import PhoneInput from "react-phone-number-input";
-// import "react-phone-number-input/style.css";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 function SignUp() {
   const validatePassword = (_, value) => {
     const uppercaseRegex = /[A-Z]/;
@@ -28,6 +25,7 @@ function SignUp() {
     return Promise.resolve();
   };
   const [value, setValue] = useState();
+  const { Option } = Select;
 
   return (
     <div
@@ -42,7 +40,7 @@ function SignUp() {
         className=" bg-white p-4 row  shadow-custom "
         style={{ borderRadius: "10px" }}
       >
-        <div className="col-md-5 col-12 d-flex flex-column justify-content-center p-4">
+        <div className="col-lg-5 col-12 d-flex flex-column justify-content-center p-4">
           <h4 className="text-lg fw-bold pb-2" style={{ color: "#000c37" }}>
             Sign up
           </h4>
@@ -150,22 +148,35 @@ function SignUp() {
               <div>
                 <Form.Item
                   name="country"
-                  label="Country"
+                  label="COUNTRY"
                   className="pb-2 fw-bold col"
                   style={{
                     color: "#000c37",
                     fontSize: "10px",
                     lineHeight: "1.2",
                   }}
+                  rules={[
+                    {
+                      required: true,
+                      message: "please select your country",
+                    },
+                  ]}
                 >
-                  <Input
+                  <Select
                     style={{
-                      paddingBottom: "12.5px",
-                      paddingTop: "12.5px",
-                      paddingLeft: "16px",
-                      paddingRight: "16px",
+                      height: "48px",
                     }}
-                  />
+                  >
+                    {" "}
+                    <Option value="1">Bangladesh</Option>
+                    <Option value="2">India</Option>
+                    <Option value="3">Pakistan</Option>
+                    <Option value="4">Canada</Option>
+                    <Option value="5">Soudi</Option>
+                    <Option value="6">Denmark</Option>
+                    <Option value="7">USA</Option>
+                    <Option value="8">UK</Option>
+                  </Select>
                 </Form.Item>
               </div>
             </div>
@@ -181,27 +192,10 @@ function SignUp() {
                     lineHeight: "1.2",
                   }}
                 >
-                  {/* <PhoneInput
-                      style={{
-                        paddingBottom: "12.5px",
-                        paddingTop: "12.5px",
-                        paddingLeft: "16px",
-                        paddingRight: "16px",
-                        borderRadius:"6px",
-                        width:"100%",
-                        border:"1px solid #d9d9d9",
-                      }}
-                    value={value}
-                    defaultCountry="US"
-                    international
-                    onChange={setValue}
-                  /> */}
                   <PhoneInput
                     style={{
                       paddingBottom: "12.5px",
                       paddingTop: "12.5px",
-                    //   paddingLeft: "16px",
-                    //   paddingRight: "16px",
                       borderRadius: "6px",
                       width: "100%",
                       border: "1px solid #d9d9d9",
@@ -244,58 +238,23 @@ function SignUp() {
                 </Form.Item>
               </div>
             </div>
+
             <p
-              className="pb-2 fw-bold col"
-              style={{
-                color: "#000c37",
-                fontSize: "10px",
-                lineHeight: "1.2",
-              }}
+              className="fw-normal"
+              style={{ color: "#6e7e92", fontSize: "14px" }}
             >
               By creating an account, you agree to our Terms & Conditions
             </p>
-            {/* <Form.Item
-              name="fastname"
-              label="FIRST NAME"
-              className="pb-2 fw-bold"
-              style={{ color: "#000c37", fontSize: "10px", lineHeight: "1.2" }}
-            >
-              <Input
-                style={{
-                  paddingBottom: "12.5px",
-                  paddingTop: "12.5px",
-                  paddingLeft: "16px",
-                  paddingRight: "16px",
-                }}
-              />
-            </Form.Item>
-            <Form.Item
-              name="lastname"
-              label="LASTNAME"
-              className="pb-2  fw-bold"
-              style={{
-                color: "#000c37",
-                fontSize: "10px",
-                lineHeight: "1.2",
-              }}
-            >
-              <Input
-                style={{
-                  paddingBottom: "12.5px",
-                  paddingTop: "12.5px",
-                  paddingLeft: "16px",
-                  paddingRight: "16px",
-                }}
-              />
-            </Form.Item> */}
-
             <Form.Item>
               <button htmlType="submit" className="submit w-full fw-bold">
                 Create account
               </button>
             </Form.Item>
           </Form>
-          <p className="text-center" style={{ color: "#6e7e92" }}>
+          <p
+            className="text-center fw-normal"
+            style={{ color: "#6e7e92", fontSize: "14px" }}
+          >
             Or continue with
           </p>
           <div className="row row-cols-2 g-3">
@@ -311,20 +270,85 @@ function SignUp() {
             </div>
           </div>
           <p
-            className="text-center py-2 fw-normal"
-            style={{ fontSize: "14px", lineHeight: "1.57" }}
+            className="text-center  fw-normal pt-2"
+            style={{ fontSize: "14px" }}
           >
-            Don’t have an account yet?{" "}
-            <span className="text-decoration-underline">Sign up</span>
+            Back to <span className="text-decoration-underline">Sign in</span>
+          </p>
+          <p className="text-center  fw-normal" style={{ fontSize: "14px" }}>
+            Back to Are you interested in{" "}
+            <span className="text-decoration-underline">Vendor account?</span>
           </p>
         </div>
-        <div className="col-md-7 col-12 h-full d-md-block d-none">
-          <img
-            src="/banner.png"
-            className="img-fluid"
-            alt="image"
-            style={{ borderRadius: "10px", height: "100%" }}
-          />
+        <div className="col-lg-7 col-12 h-full d-md-block right_side">
+          <div
+            className="d-flex flex-row flex-md-nowrap flex-wrap  justify-content-evenly align-items-center  gap-4"
+            style={{ paddingBottom: "215px" }}
+          >
+            <img
+              src="https://www.searates.com/design/images/apps/auth/icons/searates.svg"
+              className="mh-20 w-auto"
+              alt="brand"
+            />
+            <img
+              src="https://www.searates.com/design/images/apps/auth/icons/landrates.svg"
+              className="h-20 w-auto"
+              alt="brand"
+            />
+            <img
+              src="https://www.searates.com/design/images/apps/auth/icons/airrates.svg"
+              className="h-20 w-auto"
+              alt="brand"
+            />
+            <img
+              src="https://www.searates.com/design/images/apps/auth/icons/df-alliance.svg"
+              className="h-20 w-auto"
+              alt="brand"
+            />
+            <img
+              src="https://www.searates.com/design/images/apps/auth/icons/dp-world.svg"
+              className="h-20 w-auto"
+              alt="brand"
+            />
+          </div>
+          <div style={{ paddingLeft: "48px" }}>
+            <h1 style={{ color: "#000c37" }} className="fw-bolder text-xl ">
+              Find the best
+            </h1>
+            <h1 style={{ color: "#000c37" }} className="fw-bolder text-xl">
+              freight quote
+            </h1>
+            <p
+              className="font-medium"
+              style={{
+                color: "#000c37",
+                fontSize: "18px",
+                lineHeight: "1.55",
+                paddingBottom: "115px",
+              }}
+            >
+              Welcome to SeaRates! To get started, please fill out the form to
+              create your account and begin using our services.
+            </p>
+          </div>
+          <div className="testimonial">
+            <p className="pb-4 font-medium2">
+              Efficiency is the key in logistics. By leveraging technology and
+              streamlining processes, we can provide top service while
+              maximizing productivity and profitability.
+            </p>
+            <div className="d-flex align-items-center gap-2">
+              <img
+                src="https://www.searates.com/design/images/apps/auth/COO-searates.png"
+                className="profile rounded-circle"
+                alt="profile"
+              />
+              <div className="text-white d-flex flex-column">
+                <span className="fw-bold ">Stefan Rogovskiy</span>
+                <span className="fw-normal">COO of SeaRates</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

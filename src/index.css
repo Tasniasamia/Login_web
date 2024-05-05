@@ -27,7 +27,9 @@
     }
   }
   .submit {
-    background-color: #08f;
+   
+    background-color: #0088FF;
+    opacity: 1;
     border: 0;
     box-shadow: 0 4px 20px 0 rgba(0,136,255,.15);
     color: #fff;
@@ -37,6 +39,13 @@
     text-align: center;
     border-radius: 10px;
     margin-bottom: 0px!important;
+  }
+  .submit:hover{
+    opacity: 0.75;
+    transition: all;
+    transition-duration: 300ms;
+    transition-delay: 0ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   .font-medium{
     font-weight: 500;
@@ -80,9 +89,45 @@
   
 }
 .form-control:focus {
-    color: var(--bs-body-color);
-    background-color: var(--bs-body-bg);
+ 
     border-color: transparent!important;
     outline: 0;
     box-shadow: none!important;
 }
+
+
+
+
+/* styles.css */
+.right_side{
+    background-color: #e0e4ec;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-radius: 10px;
+  }
+  .testimonial {
+    background-color: #000c37;
+    border-radius: 16px 16px 0;
+    padding: 40px 20px;
+    color:#c9cfdb;
+}
+  
+  @media (max-width: 768px) {
+    .right_side {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  
+  .profile{
+    height: 48px;
+    width: 48px;
+    
+  }
+  .font-medium2{
+    font-weight: 600;
+  }
