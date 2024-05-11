@@ -131,3 +131,57 @@
   .font-medium2{
     font-weight: 600;
   }
+  .logo{
+    height:30px!important;
+    width:130px!important;
+  }
+  @media screen and (max-width:768px){
+    .logo{
+      height:27px!important;
+      width:115px!important;
+    }
+  }
+  @media screen and (max-width:568px){
+    .logo{
+      height:25px!important;
+      width:110px!important;
+    }
+  }
+  .nav{
+
+    padding:20px 0px;
+  }
+ 
+  .ant-input-affix-wrapper .ant-input-prefix svg {
+    color: #c9cfdb!important;
+  }
+.ant-input-affix-wrapper:focus-within .ant-input-prefix svg {
+  color: #0088FF!important;
+}
+
+.b-input input::placeholder {
+  color:#c9cfdb;
+}
+.b-input input{
+  border:0!important;
+}
+.icon {
+  content: "button-switch";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  flex-shrink: 0;
+  margin: 0 5px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(58,112,191,.1);
+  border-radius: 6px;
+  cursor: default;
+  color: #c9cfdb;
+  opacity: .5;
+  transition: all .25s ease;
+  z-index: 2;
+}
