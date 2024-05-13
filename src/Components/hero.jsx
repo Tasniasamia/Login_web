@@ -12,7 +12,11 @@ import dayjs from "dayjs";
 import { FaLocationDot } from "react-icons/fa6";
 import { RiArrowLeftRightLine } from "react-icons/ri";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { IoCaretDownOutline, IoCaretUpOutline, IoSearch } from "react-icons/io5";
+import {
+  IoCaretDownOutline,
+  IoCaretUpOutline,
+  IoSearch,
+} from "react-icons/io5";
 import { useState } from "react";
 // import { useLocation } from "react-router-dom";
 import { CiFlag1 } from "react-icons/ci";
@@ -21,17 +25,17 @@ const Hero = () => {
   const [location, setLocation] = useState("");
   const [destination, setDestination] = useState("");
   const [direction, setDirection] = useState("");
-const currentUrl = window.location.href;
-const url = new URL(currentUrl);
-const queryParams = new URLSearchParams(url.search);
-
-const from = queryParams.get('from');
-const to = queryParams.get('to')
+  const [towards, setToward] = useState(false);
+  const currentUrl = window.location.href;
+  const url = new URL(currentUrl);
+  const queryParams = new URLSearchParams(url.search);
+  const from = queryParams.get("from");
+  const to = queryParams.get("to");
   // const params = useSearchParams();
   // const location=useLocation()
   dayjs.extend(customParseFormat);
   const dateFormat = "YYYY-MM-DD";
- 
+
   const options = [
     "pickup",
     "destination",
@@ -97,15 +101,15 @@ const to = queryParams.get('to')
         <div className=" w-full b-input d-md-flex d-none flex-md-row flex-column justify-content-between gap-2 box-container2">
           <div className="location">ORIGIN OF SHIPMENT</div>
           <div className="location">DESTINATION OF SHIPMENT</div>
-          <div className="location2">READY TO LOAD</div>
+          <div className="location2 ">READY TO LOAD</div>
         </div>
         <div className="w-full b-input d-flex flex-md-row flex-column justify-content-between gap-2 p-1 rounded-1  bg-white ">
-        <Dropdown
+          <Dropdown
             menu={{
               items,
             }}
             trigger={["click"]}
-            className="p-2 location bg-white"
+            className={`p-2 location bg-white order-1 `}
             onClick={() => {
               setDirection("from");
             }}
@@ -114,18 +118,29 @@ const to = queryParams.get('to')
               placeholder="From"
               name="from"
               prefix={<FaLocationDot />}
-              value={from || location}
+              value={towards?to:from}
             />
           </Dropdown>
-          <div className="icon ">
-            <RiArrowLeftRightLine size={13} style={{ color: "#0139ff" }} />
+          <div
+            className="icon "
+            onClick={() => {
+              setToward(!towards);
+            }}
+          >
+            <RiArrowLeftRightLine
+              size={13}
+              style={{
+                color: "#0139ff",
+                transform: towards ? "rotate(90deg)" : "rotate(0deg)",
+              }}
+            />
           </div>
           <Dropdown
             menu={{
               items,
             }}
             trigger={["click"]}
-            className="p-2 location bg-white"
+            className={`p-2 location bg-white order-2`}
             onClick={() => {
               setDirection("to");
             }}
@@ -133,7 +148,7 @@ const to = queryParams.get('to')
             <Input
               placeholder="To"
               name="to"
-              value={to || destination}
+              value={towards?from:to}
               prefix={<FaLocationDot />}
             />
           </Dropdown>
@@ -143,9 +158,9 @@ const to = queryParams.get('to')
             defaultValue={dayjs("2019-09-03", dateFormat)}
             minDate={dayjs("2019-08-01", dateFormat)}
             maxDate={dayjs("2020-10-31", dateFormat)}
-            className="location2 p-2 bg-white"
+            className="location2 p-2 bg-white order-3"
           />
-          <div className="search">
+          <div className="search order-4">
             <IoSearch size={20} className="text-white icon2" />
           </div>
         </div>
@@ -154,8 +169,8 @@ const to = queryParams.get('to')
         onClick={() => setToggle(!toggle)}
         className={`filter-btn px-2 d-flex justify-content-between align-items-center mb-2 d-md-none d-block`}
       >
-        <span>  {toggle?'Hidden ':'Show'}{" "}filter</span>
-        {toggle? <IoCaretUpOutline />:<IoCaretDownOutline /> }
+        <span> {toggle ? "Hidden " : "Show"} filter</span>
+        {toggle ? <IoCaretUpOutline /> : <IoCaretDownOutline />}
       </div>
       <div
         className={`row row-cols-md-4 d-md-block  ${

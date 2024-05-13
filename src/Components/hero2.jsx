@@ -69,7 +69,7 @@ const Hero = () => {
               items,
             }}
             trigger={["click"]}
-            className="p-2 location bg-white"
+            className="p-2 location bg-white order-2"
             onClick={() => {
               setDirection("from");
             }}
@@ -89,7 +89,7 @@ const Hero = () => {
               items,
             }}
             trigger={["click"]}
-            className="p-2 location bg-white"
+            className="p-2 location bg-white order-1"
             onClick={() => {
               setDirection("to");
             }}
@@ -107,9 +107,9 @@ const Hero = () => {
             defaultValue={dayjs("2019-09-03", dateFormat)}
             minDate={dayjs("2019-08-01", dateFormat)}
             maxDate={dayjs("2020-10-31", dateFormat)}
-            className="location2 p-2 bg-white"
+            className="location2 p-2 bg-white order-3"
           />
-          <div className="search">
+          <div className="search order-4">
             <IoSearch
               size={20}
               className="text-white icon2"
