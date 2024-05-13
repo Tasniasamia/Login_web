@@ -12,7 +12,7 @@ import dayjs from "dayjs";
 import { FaLocationDot } from "react-icons/fa6";
 import { RiArrowLeftRightLine } from "react-icons/ri";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { IoCaretDownOutline, IoSearch } from "react-icons/io5";
+import { IoCaretDownOutline, IoCaretUpOutline, IoSearch } from "react-icons/io5";
 import { useState } from "react";
 // import { useLocation } from "react-router-dom";
 import { CiFlag1 } from "react-icons/ci";
@@ -154,8 +154,8 @@ const to = queryParams.get('to')
         onClick={() => setToggle(!toggle)}
         className={`filter-btn px-2 d-flex justify-content-between align-items-center mb-2 d-md-none d-block`}
       >
-        <span> Show filter </span>
-        <IoCaretDownOutline />
+        <span>  {toggle?'Hidden ':'Show'}{" "}filter</span>
+        {toggle? <IoCaretUpOutline />:<IoCaretDownOutline /> }
       </div>
       <div
         className={`row row-cols-md-4 d-md-block  ${
