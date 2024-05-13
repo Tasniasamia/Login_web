@@ -206,9 +206,28 @@ body {
   font-weight: 600;
   position: relative;
   z-index: 20;
+  margin-bottom: 20px;
 }
 .box-container2 {
   padding: 0 0 6px 0;
+}
+.menu-box {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 13.5px 20px;
+  box-shadow: 0 0 20px rgba(105, 126, 157, 0.1);
+ 
+}
+.menu-title {
+  font-weight: 500;
+  margin-bottom: 10px !important;
+  margin-top:4px!important;
+  font-size:16px;
+  color:#212529!important;
+}
+.menu-text{
+  font-size:14px!important;
+  color:#15354e!important;
 }
 @media screen and (max-width: 768px) {
   .search {
