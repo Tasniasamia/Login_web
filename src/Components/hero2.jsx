@@ -1,59 +1,127 @@
-import { DatePicker, Form, Input } from "antd";
-import "./style.css";
-import { IoLocationOutline } from "react-icons/io5";
-import { TbSwitchHorizontal } from "react-icons/tb";
+import { DatePicker, Dropdown, Input } from "antd";
 import dayjs from "dayjs";
+import { FaLocationDot } from "react-icons/fa6";
+import { RiArrowLeftRightLine } from "react-icons/ri";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { SearchOutlined } from "@ant-design/icons";
-import Navber from "../Navber/Navber";
-const Header2 = () => {
+import { IoSearch } from "react-icons/io5";
+import { CiFlag1 } from "react-icons/ci";
+import { useState } from "react";
+import { useNavigate} from "react-router-dom";
+
+const Hero = () => {
+  const [location, setLocation] = useState("");
+  const [destination, setDestination] = useState("");
+  const [direction, setDirection] = useState("");
   dayjs.extend(customParseFormat);
   const dateFormat = "YYYY-MM-DD";
-  return (
-    <>
-  
-      <h2 className="text-start text-white ">Book Your Container</h2>
-
-      <div className="">
-        <Form
-          onFinish={async (values) => {
-            console.log(values);
+  console.log("direction", direction);
+  const items = [
+    {
+      label: (
+        <div
+          onClick={() => {
+            if (direction === "from") setLocation("Dhaka, Bangladesh");
+            if (direction === "to") setDestination("Dhaka, Bangladesh");
           }}
-          className="p-2 "
         >
-          <div className="justify input-h  mx-auto">
+          Dhaka, Bangladesh
+        </div>
+      ),
+      key: "0",
+      icon: <CiFlag1 />,
+    },
+    {
+      label: (
+        <div
+          onClick={() => {
+            if (direction === "from") setLocation("Khulna, Bangladesh");
+            if (direction === "to") setDestination("Khulna, Bangladesh");
+          }}
+        >
+          Khulna, Bangladesh
+        </div>
+      ),
+      key: "1",
+      icon: <CiFlag1 />,
+    },
+    {
+      label: (
+        <div
+          onClick={() => {
+            if (direction === "from") setLocation("Kolkata, Bangladesh");
+            if (direction === "to") setDestination("Kolkata, Bangladesh");
+          }}
+        >
+          Kolkata, Bangladesh
+        </div>
+      ),
+      key: "2",
+      icon: <CiFlag1 />,
+    },
+  ];
+  const navigate=useNavigate();
+ return (
+    <div>
+      <div className="box-container ">
+        <div className="w-full b-input d-flex flex-md-row flex-column justify-content-between gap-2 p-1 rounded-1  bg-white ">
+          <Dropdown
+            menu={{
+              items,
+            }}
+            trigger={["click"]}
+            className="p-2 location bg-white"
+            onClick={() => {
+              setDirection("from");
+            }}
+          >
             <Input
-              name="from"
-              addonBefore={
-                <IoLocationOutline size={20} className="hover-color" />
-              }
               placeholder="From"
-              className=""
+              name="from"
+              prefix={<FaLocationDot />}
+              value={location}
             />
-            <div className="style-logo">
-              <TbSwitchHorizontal size={15} />
-            </div>
-            <Input
-              name="to"
-              addonBefore={
-                <IoLocationOutline size={20} className="hover-color" />
-              }
-              placeholder="To"
-              className=""
-            />
-            <DatePicker
-              name="date"
-              defaultValue={dayjs("2019-09-03", dateFormat)}
-              minDate={dayjs("2019-08-01", dateFormat)}
-              maxDate={dayjs("2020-10-31", dateFormat)}
-            />
-            <button className="bg-primary "><SearchOutlined size={20} /></button>
-            {/* <button className="bg-light "><CiSearch size={15} /></button> */}
+          </Dropdown>
+          <div className="icon ">
+            <RiArrowLeftRightLine size={13} style={{ color: "#0139ff" }} />
           </div>
-        </Form>
+          <Dropdown
+            menu={{
+              items,
+            }}
+            trigger={["click"]}
+            className="p-2 location bg-white"
+            onClick={() => {
+              setDirection("to");
+            }}
+          >
+            <Input
+              placeholder="To"
+              name="to"
+              value={destination}
+              prefix={<FaLocationDot />}
+            />
+          </Dropdown>
+          <DatePicker
+            placeholder={`${new Date().toISOString().slice(0, 10)}`}
+            name="date"
+            defaultValue={dayjs("2019-09-03", dateFormat)}
+            minDate={dayjs("2019-08-01", dateFormat)}
+            maxDate={dayjs("2020-10-31", dateFormat)}
+            className="location2 p-2 bg-white"
+          />
+          <div className="search">
+            <IoSearch
+              size={20}
+              className="text-white icon2"
+              onClick={() => {
+                navigate(`/home2?from=${location}&to=${destination}`);
+              }}
+            />
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Header2;
+export default Hero;

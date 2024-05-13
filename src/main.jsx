@@ -21,6 +21,7 @@ import "@fontsource/montserrat";
 import Login from "./routes/login";
 import SignUp from "./routes/signup";
 import Home from "./routes/home";
+import Home2 from "./routes/home2";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,8 +36,13 @@ const router = createBrowserRouter([
         element:<SignUp/>
       },
       {
-        path:"/",
+        path:"/home2",
         element:<Home/>
+
+      },
+      {
+        path:'/',
+        element:<Home2/>
 
       }
     ]

@@ -139,7 +139,10 @@ body {
 .ant-input-affix-wrapper:focus-within .ant-input-prefix svg {
   color: #0088ff !important;
 }
-
+.ant-input{
+  border:0!important;
+  box-shadow:none!important;
+}
 .b-input input::placeholder {
   color: #c9cfdb;
 }
@@ -196,6 +199,16 @@ body {
   background: #0088ff;
   cursor: pointer;
 }
+.filter-btn {
+  height: 52px !important;
+  width: 52px !important;
+
+  border: 1px solid white;
+  border-radius: 5px;
+  background:white;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(105, 126, 157, 0.1);
+}
 .box-container {
   padding: 10px 20px 15px;
   background: #e9f0f7;
@@ -208,6 +221,7 @@ body {
   z-index: 20;
   margin-bottom: 20px;
 }
+
 .box-container2 {
   padding: 0 0 6px 0;
 }
@@ -229,9 +243,14 @@ body {
   font-size:14px!important;
   color:#15354e!important;
 }
+
 @media screen and (max-width: 768px) {
+  
   .search {
     width: 100% !important;
+  }
+  .filter-btn{
+    width:100%!important;
   }
   .location {
     width: 100% !important;
@@ -278,8 +297,12 @@ body {
 }
 /* } */
 @media screen and (max-width: 568px) {
+  
   .search {
     width: 100% !important;
+  }
+  .filter-btn{
+    width:100%!important;
   }
   .location {
     width: 100% !important;
