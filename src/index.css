@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
-* {
+/* * {
   padding: 0;
   margin: 0;
 }
@@ -22,11 +22,11 @@
 
 .shadow-custom {
   box-shadow: 0 4px 15px 0 rgba(58, 112, 191, 0.1);
-}
+} */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .multiple-backgrounds {
-    width: 100!important;
+    width: 100%!important;
     height: 866px;
     background:  url('/hero.png') no-repeat center center / cover ;
   }
@@ -43,8 +43,8 @@
     font-size: 14px;
     line-height: 25.6px;
     color: white;
-    margin-left:250px;
-    width:100%;
+    margin-left:0!important;;
+   
   
   }
  
@@ -60,8 +60,8 @@
   transition: 0.3s linear;
   width: 100%;
   text-align: center;
-  border-radius: 10px;
-  margin-bottom: 0px !important;
+  border-radius: 10px; */
+  /* margin-bottom: 0px !important;
 }
 
 .submit:hover {
@@ -115,8 +115,12 @@ body {
   color: #c9cfdb;
 }
 
-@media (max-width: 600px) {
-  
+@media (max-width: 568px) {
+  .multiple-backgrounds {
+    width: 100%!important;
+    height: 866px;
+    background:  url('/hero.png') no-repeat center center / cover ;
+  }
   .hero-title {
     font-family: "Montserrat", sans-serif;
     font-size: 21px;
@@ -130,8 +134,8 @@ body {
     font-size: 14px;
     line-height: 25.6px;
     color: white;
-    margin-left:250px;
-    width:100%;
+    margin-left:0!important;
+  
   
   }
   .right_side {
@@ -299,41 +303,146 @@ body {
 
 .box-container2 {
   padding: 0 0 6px 0;
+}*/
+.hero-img1 {
+  width: 25%;
+  height: 400px;
+  display: block;
 }
-
 .hero-title {
   font-family: "Montserrat", sans-serif;
   font-size: 67px;
   color: white;
   font-weight: 700;
   padding-top: 120px;
+  z-index: 2;
+  position: relative;
 }
+
 .hero-content {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 25.6px;
   color: white;
-  margin-left:250px;
-  width:626px;
+  margin-left: 250px;
+  width: 626px;
+  z-index: 2;
+  position: relative;
+}
 
-}
-.hero-img1{
-  width:25%;
-  height:400px;
-}
+
+
 .multiple-backgrounds {
-  postion:relative;
-  display:flex;
+  position: relative; /* Corrected 'postion' to 'position' */
   height: 866px;
-  width: 100% !important;
+  width: 100%;
   background: 
     url('/hero1.png') no-repeat bottom left / 544px 519px, 
-    url('/hero.png') no-repeat center center / cover ;
+    url('/hero.png') no-repeat center center / cover;
+}
+
+.img-position {
+  position: absolute;
+  right: 0;
+  top: 120px;
+  z-index: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .multiple-backgrounds {
+    max-width:100%!important;
+    height:700px;
+    background: 
+      url('/hero.png') no-repeat center center / cover;
   }
-  .img-position{
-    position:absolute;
-    right:0;
-    top:20%;
+
+  .hero-title {
+    font-size: 56px;
+    padding-top: 120px;
+  }
+
+  .hero-content {
+    font-size: 14px;
+    margin-left: 0;
+    width: 500px;
+  }
+
+  .img-position {
+   display:none!important;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 48px;
+    padding-top: 80px;
+  }
+
+  .hero-content {
+    font-size: 14px;
+    margin-left: 0;
+    width: 400px;
+  }
+
+  .hero-img1 {
+    display: none; /* Keep the image hidden */
+  }
+
+  .multiple-backgrounds {
+    height: 700px;
+    max-width: 100%;
+    background: 
+      url('/hero.png') no-repeat center center / cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+    padding-top: 60px;
+  }
+
+  .hero-content {
+    font-size: 12px;
+    margin-left: 0;
+    width: 300px;
+  }
+
+  .hero-img1 {
+    display: none; /* Keep the image hidden */
+  }
+
+  .img-position {
+    top: 80px;
+    display: none; 
 
   }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 28px;
+    padding-top: 120px;
+  }
+
+  .hero-content {
+    font-size: 12px;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .hero-img1 {
+    display: none !important; /* Keep the image hidden */
+    width: 60%;
+    height: 200px;
+  }
+
+  .multiple-backgrounds {
+    height: 600px;
+  
+    background: 
+      url('/hero.png') no-repeat center center / cover;
+  }
+}
