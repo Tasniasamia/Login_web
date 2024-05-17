@@ -22,6 +22,8 @@ import Login from "./routes/login";
 import SignUp from "./routes/signup";
 import Home from "./routes/home";
 import Home2 from "./routes/home2";
+import Product_Details from "./routes/product-details";
+import Home3 from "./routes/home3";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
         path:'/',
         element:<Home2/>
 
+      },
+      {
+        path:'/details',
+        element:<Product_Details/>
+      },
+      {
+        path:'/home3',
+        element:<Home3/>
       }
     ]
   },

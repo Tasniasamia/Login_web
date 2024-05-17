@@ -1,7 +1,7 @@
 
 const Navbar = () => {
     return (
-        <div className="container1 nav">
+        <div className="container nav">
         <img src="https://www.searates.com/design/images/searates-logo.svg?2"
             className="logo"
             alt="logo"/>
