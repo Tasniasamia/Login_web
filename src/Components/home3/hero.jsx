@@ -6,7 +6,7 @@ const Hero = () => {
     >
       <img
         src="/hero2.png"
-        className="img-fluid img-position"
+        className=" img-position"
         alt="hero1"
       />
 
@@ -19,6 +19,7 @@ const Hero = () => {
           tariff search engine in the world for international shipping The
           lowest rates. The shortest transit times. SeaRates is the largest
         </p>
+        <input type="text"className="search-box"/>
       </div>
     </div>
   );
