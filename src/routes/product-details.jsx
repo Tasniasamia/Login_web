@@ -2,7 +2,7 @@ import PackageList from '../Components/details/packagelist';
 
 const Product_Details = () => {
     return (
-        <div>
+        <div >
             <PackageList/>
         </div>
     );

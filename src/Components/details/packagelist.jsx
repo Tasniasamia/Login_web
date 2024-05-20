@@ -33,7 +33,7 @@ const PackageList = () => {
           <>
             <div style={{overflowX:"scroll"}}>
               {fields.map(({ key, name, ...restField }) => (
-                <div key={key} className="text-label">
+                <div key={key} className="text-label my-form">
                   <Row gutter={[8, 16]} align="middle">
                     <Col lg={6} md={6} sm={12} xs={12}>
                       <Form.Item

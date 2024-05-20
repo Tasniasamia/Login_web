@@ -1,0 +1,232 @@
+.hero-img1 {
+    width: 25%;
+    height: 400px;
+    display: block;
+  }
+  .hero-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 67px;
+    color: white;
+    font-weight: 700;
+    padding-top: 120px;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .hero-content {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25.6px;
+    color: white;
+    margin-left: 263px;
+    width: 626px;
+    z-index: 2;
+    position: relative;
+    margin-top:22px;
+  }
+  
+  .multiple-backgrounds {
+    position: relative; /* Corrected 'postion' to 'position' */
+    display: flex;
+    flex-direction: row;
+    height: 866px;
+    width: 100%;
+    background: url("/hero1.png") no-repeat bottom left / 519px 544px,
+      url("/hero.png") no-repeat center center / cover;
+  }
+  
+  .img-position {
+    position: absolute;
+    right: 0;
+    top: 120px;
+    height: 596px;
+    max-width: 671px;
+    z-index: 0;
+  }
+  .search-box{
+    width:961px;
+    height:50px;
+    z-index:6;
+    padding-left:10px;
+    position:relative;
+    border-radius:200px;
+    margin:70px auto 0;
+    border:0!important;
+    box-shadow:none!important;
+    outline:none!important;
+  }
+  .search-box::focus{
+    border:0!important;
+    box-shadow:none!important;
+    outline:none!important;
+  }
+  /* Responsive styles */
+  @media (max-width: 1200px) {
+    .multiple-backgrounds {
+      max-width: 100% !important;
+      display:block;
+      height: 700px;
+      background:
+      url("/hero.png") no-repeat center center / cover;
+    }
+   
+    .hero-title {
+      font-size: 56px;
+      padding-top: 120px;
+    }
+  
+    .hero-content {
+      font-size: 14px;
+      margin-left: 0;
+      width: 500px;
+    }
+  
+    .img-position {
+      display: none !important;
+      max-width: 100%;
+      height: auto;
+      position: static;
+      margin-top:40px;
+    }
+    .search-box{
+      width:100%;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .hero-title {
+      font-size: 48px;
+      padding-top: 120px;
+    }
+  
+    .hero-content {
+      font-size: 14px;
+      margin-left: 0;
+      width: 400px;
+    }
+  
+    
+  
+    .multiple-backgrounds {
+      display:block!important;
+      height: 600px;
+      max-width: 100%;
+      background: url("/hero.png") no-repeat center center / cover;
+      postion:relative;
+    }
+    .img-position {
+      max-width: 100%;
+      height: 400px;
+      position: absolute;
+      bottom:0;
+      display:none!important;
+    }
+    .search-box{
+      width:100%;
+      margin:70px auto 0;
+  
+  }
+  .myform > .ant-form-item .ant-form-item-label >label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    height: 32px;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 14px!important;
+  }
+  }
+  @media (max-width: 768px) {
+    .multiple-backgrounds {
+      height: 500px;
+      display:block!important;
+      background: url("/hero.png") no-repeat center center / cover;
+    }
+    .hero-title {
+      font-size: 36px;
+      padding-top: 60px;
+    }
+  
+    .hero-content {
+      font-size: 12px;
+      margin-left: 0;
+      width: 300px;
+    }
+  .img-position {
+      top: 80px;
+      display: none!important;
+    }
+    .search-box{
+      width:100%;
+      margin:70px auto 0;
+  
+    }
+    .myform > .ant-form-item .ant-form-item-label >label {
+    
+      font-size: 14px!important;
+     
+      
+    }
+  }
+  
+  @media (max-width: 580px) {
+    .hero-title {
+      font-size: 28px;
+      padding-top: 50px;
+    }
+  
+    .hero-content {
+      font-size: 12px;
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .img-position {
+      display: none !important; /* Keep the image hidden */
+      max-width:100%;
+      height: 400px;
+    }
+  
+    .multiple-backgrounds {
+      height: 500px;
+      display:block!important;
+      background: url("/hero.png") no-repeat center center / cover;
+    }
+    .search-box{
+      width:100%;
+      margin:30px auto 0;
+  
+    }
+    .my-form> .ant-form-item  
+      {
+        position: relative;
+        display: block!important;
+        align-items: center;
+        max-width: 100%;
+        height: 55px;
+        color: rgba(0, 0, 0, 0.88);
+        font-size: 14px!important;
+    }
+  
+  
+  }
+  .my-form > .ant-row {
+        display: flex !important;
+        flex-flow:nowrap !important;
+      }
+  
+     
+
+   
+   
+  
+  
+  
+   .form-wrapper .ant-form-item .ant-form-item-label > label {
+      font-size: 14px !important;
+      color: rgba(0, 0, 0, 0.88);
+    
+    
+  } 
+  
