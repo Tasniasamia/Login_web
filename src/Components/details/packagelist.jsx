@@ -1,37 +1,98 @@
 import { Button, Col, Form, Input, Row, Select } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import { useState } from "react";
 
 const PackageList = () => {
+  const [isdisable, setIsdisable] = useState(false);
   return (
     <div
       style={{ minHeight: "70vh", background: "#F8F9FD" }}
       className="my-form py-4"
     >
       <div className="container">
-        <div>
-          <p
-            className="text-start mt-4 fw-bold"
-            style={{
-              fontSize: "16px",
-              fontWeight: "bold",
-            }}
-          >
-            Import Packing List in Bulk!
-          </p>
+        <Form
+          layout="vertical"
+          name="dynamic_form_nest_item"
+          onFinish={(value) => {
+            console.log(value);
+          }}
+          autoComplete="off"
+        >
+          <div className="mb-4 ">
+            <div
+              className="custom-form location-box p-3 "
+              style={{
+                borderRadius: "20px",
+                background: "white",
+                border: "2px solid black",
+              }}
+            >
+              <Form.Item name="origin_shipment" label="Origin of Shippment">
+                <Select
+                  name="from"
+                  placeholder="From"
+                  className="text-center "
+                >
+                  <Select.Option key="1" value="Khulna">
+                    Khulna
+                  </Select.Option>
+                  <Select.Option key="2" value="Dhaka">
+                    Dhaka
+                  </Select.Option>
+                  <Select.Option key="3" value="Jessore">
+                    Jessore
+                  </Select.Option>
+                </Select>
+              </Form.Item>
 
-          <Form
-            layout="vertical"
-            name="dynamic_form_nest_item"
-            onFinish={(value) => {
-              console.log(value);
-            }}
-            autoComplete="off"
-          >
+              <Form.Item
+                name="destination_shipment"
+                label="Destination of Shippment"
+                className="shipoint "
+              >
+                <Select placeholder="To" name="to">
+                  <Select.Option key="1" value="Khulna">
+                    Khulna
+                  </Select.Option>
+                  <Select.Option key="2" value="Dhaka">
+                    Dhaka
+                  </Select.Option>
+                  <Select.Option key="3" value="Jessore">
+                    Jessore
+                  </Select.Option>
+                </Select>
+              </Form.Item>
+
+              <Form.Item
+                name="loading_date"
+                label="Date of Loading"
+                className=" rounded custom-form-date"
+              >
+                <Input
+                  className="custom-date-picker "
+                  type="date"
+                  id="valid_till"
+                />
+              </Form.Item>
+            </div>
+          </div>
+          <p className="fw-bold text-center">Packing List Details</p>
+          <div>
+            <p
+              className="text-start mt-4 fw-bold"
+              style={{
+                fontSize: "16px",
+                fontWeight: "bold",
+              }}
+            >
+              Import Packing List in Bulk!
+            </p>
+
             <Form.List name="users">
               {(fields, { add, remove }) => (
                 <>
-                  <div style={{ overflowX: "scroll" }}>
+                  <div style={{ overflowX: isdisable ? "scroll" : "hidden" }}>
                     {fields.map(({ key, name, ...restField }) => (
                       <div key={key} className="text-label my-form">
                         <Row gutter={[8, 16]} align="middle">
@@ -198,7 +259,10 @@ const PackageList = () => {
                   </div>
                   <Button
                     type="dashed"
-                    onClick={() => add()}
+                    onClick={() => {
+                      add();
+                      setIsdisable(true);
+                    }}
                     style={{
                       width: "100%",
                       marginTop: "10px",
@@ -216,8 +280,8 @@ const PackageList = () => {
                 Request Quote
               </Button>
             </Form.Item>
-          </Form>
-        </div>
+          </div>
+        </Form>
       </div>
     </div>
   );

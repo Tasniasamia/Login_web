@@ -171,6 +171,9 @@
   }
   
   @media (max-width: 580px) {
+    .location-box{
+        display:block!important;
+    }
     .hero-title {
       font-size: 28px;
       padding-top: 50px;
@@ -219,8 +222,36 @@
      
 
    
-   
+ 
+.custom-form{
+    .ant-form-item{
+        margin-bottom:0px!important;
+    }
+    .ant-select-selector{
+        border:0!important;
+        box-shadow: none!important;
+        outline:none!important;
+    
+    }
   
-  
+}
+.ant-select-selection-item{
+    display: flex !important;
+    text-align: center !important;
+}
+.custom-form-date{
+    .ant-input{
+        border:0!important;
+        box-shadow: none!important;
+        outline:none!important; 
+    }
+}
+.location-box{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    
+}  
   
   
