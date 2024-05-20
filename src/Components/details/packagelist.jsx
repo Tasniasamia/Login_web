@@ -2,6 +2,7 @@ import { Button, Col, Form, Input, Row, Select } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useState } from "react";
+import { PiArrowsLeftRight } from "react-icons/pi";
 
 const PackageList = () => {
   const [isdisable, setIsdisable] = useState(false);
@@ -45,6 +46,7 @@ const PackageList = () => {
                   </Select.Option>
                 </Select>
               </Form.Item>
+              <PiArrowsLeftRight style={{color:'black'}} size={26}/>
 
               <Form.Item
                 name="destination_shipment"
