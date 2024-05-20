@@ -6,6 +6,11 @@ import { PiArrowsLeftRight } from "react-icons/pi";
 
 const PackageList = () => {
   const [isdisable, setIsdisable] = useState(false);
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [isdircetionChange, setIschangedirection] = useState(false);
+  console.log(from);
+  console.log(to);
   return (
     <div
       style={{ minHeight: "70vh", background: "#F8F9FD" }}
@@ -21,63 +26,93 @@ const PackageList = () => {
           autoComplete="off"
         >
           <div className="mb-4 ">
-            <div
+            <Row
+              align="middle"
               className="custom-form location-box p-3 "
               style={{
                 borderRadius: "20px",
                 background: "white",
-                border: "2px solid black",
+                borderWidth: "2px",
               }}
             >
-              <Form.Item name="origin_shipment" label="Origin of Shippment">
-                <Select
-                  name="from"
-                  placeholder="From"
-                  className="text-center "
-                >
-                  <Select.Option key="1" value="Khulna">
-                    Khulna
-                  </Select.Option>
-                  <Select.Option key="2" value="Dhaka">
-                    Dhaka
-                  </Select.Option>
-                  <Select.Option key="3" value="Jessore">
-                    Jessore
-                  </Select.Option>
-                </Select>
-              </Form.Item>
-              <PiArrowsLeftRight style={{color:'black'}} size={26}/>
-
-              <Form.Item
-                name="destination_shipment"
-                label="Destination of Shippment"
-                className="shipoint "
-              >
-                <Select placeholder="To" name="to">
-                  <Select.Option key="1" value="Khulna">
-                    Khulna
-                  </Select.Option>
-                  <Select.Option key="2" value="Dhaka">
-                    Dhaka
-                  </Select.Option>
-                  <Select.Option key="3" value="Jessore">
-                    Jessore
-                  </Select.Option>
-                </Select>
-              </Form.Item>
-
-              <Form.Item
-                name="loading_date"
-                label="Date of Loading"
-                className=" rounded custom-form-date"
-              >
-                <Input
-                  className="custom-date-picker "
-                  type="date"
-                  id="valid_till"
+              <Col md={8} sm={24} xs={24}>
+                <Form.Item name="origin_shipment" label="Origin of Shippment">
+                  <Select
+                    name="from"
+                    placeholder="From"
+                    className=""
+                    onChange={(e) => {
+                      setFrom(e);
+                    }}
+                    value={isdircetionChange ? to : from}
+                  >
+                    <Select.Option key="1" value="Khulna">
+                      Khulna
+                    </Select.Option>
+                    <Select.Option key="2" value="Dhaka">
+                      Dhaka
+                    </Select.Option>
+                    <Select.Option key="3" value="Jessore">
+                      Jessore
+                    </Select.Option>
+                  </Select>
+                </Form.Item>
+              </Col>
+              <Col md={1} sm={24} xs={24}>
+                <PiArrowsLeftRight
+                  style={{
+                    color: "black",
+                    cursor: "pointer",
+                    transform: isdircetionChange ? "rotate(-180deg)" : "rotate(0deg)",
+                    transition: "transform 0.3s ease-in-out", // Optional: Smooth transition for the rotation
+                  }}
+                  className="icon-direction"
+                  size={16}
+                  onClick={() => {
+                    setIschangedirection(!isdircetionChange);
+                  }}
                 />
-              </Form.Item>
-            </div>
+              </Col>
+              <Col md={8} sm={24} xs={24}>
+                <Form.Item
+                  name="destination_shipment"
+                  label="Destination of Shippment"
+                  className="shipoint "
+                >
+                  <Select
+                    placeholder="To"
+                    name="to"
+                    onChange={(e) => {
+                      setTo(e);
+                    }}
+                    value={isdircetionChange ? from : to}
+                  >
+                    <Select.Option key="1" value="Khulna">
+                      Khulna
+                    </Select.Option>
+                    <Select.Option key="2" value="Dhaka">
+                      Dhaka
+                    </Select.Option>
+                    <Select.Option key="3" value="Jessore">
+                      Jessore
+                    </Select.Option>
+                  </Select>
+                </Form.Item>
+              </Col>
+              <Col md={6} sm={24} xs={24}>
+                <Form.Item
+                  name="loading_date"
+                  label="Date of Loading"
+                  className=" rounded custom-form-date"
+                >
+                  <Input
+                    className="custom-date-picker "
+                    type="date"
+                    id="valid_till"
+                  />
+                </Form.Item>
+              </Col>
+            </Row>
           </div>
           <p className="fw-bold text-center">Packing List Details</p>
           <div>
