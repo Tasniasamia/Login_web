@@ -24,6 +24,7 @@ import Home from "./routes/home";
 import Home2 from "./routes/home2";
 import Product_Details from "./routes/product-details";
 import Home3 from "./routes/home3";
+import Shipping from "./routes/shipping";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:'/home3',
         element:<Home3/>
+      },
+      {
+        path:"/shipping",
+        element:<Shipping/>
       }
     ]
   },
